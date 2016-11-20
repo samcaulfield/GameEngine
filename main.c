@@ -258,7 +258,7 @@ int main(int argc, char **argv)
 	float totalTime = 0;
 	const uint32_t frameRateUpdateInterval = 100;
 	const char *titleFormat = "OpenGL - FPS = %.2f";
-	uint32_t titleFormatLength = 1 + snprintf(NULL, 0, titleFormat, 00.00f);
+	uint32_t titleFormatLength = 1 + snprintf(NULL, 0, titleFormat, 111.11f);
 
 	while (running && !glfwWindowShouldClose(window)) {
 		/* Setup */
