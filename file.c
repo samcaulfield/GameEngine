@@ -5,7 +5,7 @@
 
 char *loadFile(const char *name)
 {
-	FILE *file = fopen(name, "r");
+	FILE *file = fopen(name, "rb");
 	if (!file) {
 		return NULL;
 	}
