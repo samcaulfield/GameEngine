@@ -87,13 +87,13 @@ struct Mesh *square(float x, float y, float z, float size, GLint positionAttribL
 
 	glGenBuffers(1, &mesh->positionsBuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, mesh->positionsBuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(positions) * sizeof(float), positions, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(positions), positions, GL_STATIC_DRAW);
 	glVertexAttribPointer(positionAttribLocation, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(positionAttribLocation);
 
 	glGenBuffers(1, &mesh->normals);
 	glBindBuffer(GL_ARRAY_BUFFER, mesh->normals);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(normals) * sizeof(float), normals, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(normals), normals, GL_STATIC_DRAW);
 	glVertexAttribPointer(normalAttribLocation, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(normalAttribLocation);
 
@@ -202,13 +202,13 @@ struct Mesh *pyramid(float x, float y, float z, float size, GLint positionAttrib
 
 	glGenBuffers(1, &mesh->positionsBuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, mesh->positionsBuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(positions) * sizeof(float), positions, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(positions), positions, GL_STATIC_DRAW);
 	glVertexAttribPointer(positionAttribLocation, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(positionAttribLocation);
 
 	glGenBuffers(1, &mesh->normals);
 	glBindBuffer(GL_ARRAY_BUFFER, mesh->normals);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(normals) * sizeof(float), normals, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(normals), normals, GL_STATIC_DRAW);
 	glVertexAttribPointer(normalAttribLocation, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(normalAttribLocation);
 
@@ -352,13 +352,13 @@ struct Mesh *cube(float x, float y, float z, float size, GLint positionAttribLoc
 
 	glGenBuffers(1, &mesh->positionsBuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, mesh->positionsBuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(positions) * sizeof(float), positions, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(positions), positions, GL_STATIC_DRAW);
 	glVertexAttribPointer(positionAttribLocation, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(positionAttribLocation);
 
 	glGenBuffers(1, &mesh->normals);
 	glBindBuffer(GL_ARRAY_BUFFER, mesh->normals);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(normals) * sizeof(float), normals, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(normals), normals, GL_STATIC_DRAW);
 	glVertexAttribPointer(normalAttribLocation, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	glEnableVertexAttribArray(normalAttribLocation);
 
