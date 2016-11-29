@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "math.h"
+#include "maths.h"
 
 float dotProduct(float ax, float ay, float az, float bx, float by, float bz)
 {

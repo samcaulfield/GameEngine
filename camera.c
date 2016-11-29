@@ -1,5 +1,5 @@
 #include "camera.h"
-#include "math.h"
+#include "maths.h"
 
 void getViewMatrix(struct Camera *camera)
 {

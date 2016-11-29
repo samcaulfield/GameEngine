@@ -8,7 +8,7 @@
 #include "camera.h"
 #include "file.h"
 #include "light.h"
-#include "math.h"
+#include "maths.h"
 #include "mesh.h"
 #include "shader.h"
 #include "terrain.h"

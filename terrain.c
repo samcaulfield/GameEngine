@@ -4,7 +4,7 @@
 #include "stb_image.h"
 
 #include "file.h"
-#include "math.h"
+#include "maths.h"
 #include "terrain.h"
 #include "utils.h"
 
