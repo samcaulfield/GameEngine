@@ -23,6 +23,4 @@ Art Assets (With thanks):
 - The object textures are from GNU Image Manipulation Program (GIMP)
 - The skyboxes were taken from http://opengameart.org/content/cloudy-skyboxes
 
-![Image]
-(https://github.com/samcaulfield/GameEngine/raw/master/docs/game.png)
-
+![screenshot](docs/game.png)
