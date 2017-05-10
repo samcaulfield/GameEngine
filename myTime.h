@@ -1,5 +1,5 @@
-#ifndef TIME_H
-#define TIME_H
+#ifndef MYTIME_H
+#define MYTIME_H
 
 /* Returns the time since the previous call in seconds
  * For the first call, the return value will be zero

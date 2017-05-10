@@ -12,13 +12,13 @@
 #include "mesh.h"
 #include "shader.h"
 #include "terrain.h"
-#include "time.h"
+#include "myTime.h"
 
 /* Globals needed by processEvents */
 bool running = true;
 struct Camera camera = {.x = 0.0f, .y = 0.0f, .z = 0.0f, .rx = 0.0f, .ry = 0.0f, .height = 1.5f,
 	.movementSpeed = 1.0f, .rotationSpeed = 90.0f};
-double time; /* time since last frame */
+double timeSincePrevFrameSeconds; /* time since last frame */
 bool cameraMoved = true;
 struct Terrain *g_terrain;
 struct Mesh **g_meshes;
@@ -34,7 +34,7 @@ void processEvents(GLFWwindow *window)
 	float xMove = 0, yMove = 0, zMove = 0;
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-		float moveVector[] = {0.0f, 0.0f, -camera.movementSpeed * time, 1.0f};
+		float moveVector[] = {0.0f, 0.0f, -camera.movementSpeed * timeSincePrevFrameSeconds, 1.0f};
 		vectorYRotate(camera.ry, moveVector);
 		xMove += moveVector[0];
 		yMove += moveVector[1];
@@ -43,7 +43,7 @@ void processEvents(GLFWwindow *window)
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-		float moveVector[] = {-camera.movementSpeed * time, 0.0f, 0.0f, 1.0f};
+		float moveVector[] = {-camera.movementSpeed * timeSincePrevFrameSeconds, 0.0f, 0.0f, 1.0f};
 		vectorYRotate(camera.ry, moveVector);
 		xMove += moveVector[0];
 		yMove += moveVector[1];
@@ -52,7 +52,7 @@ void processEvents(GLFWwindow *window)
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-		float moveVector[] = {0.0f, 0.0f, camera.movementSpeed * time, 1.0f};
+		float moveVector[] = {0.0f, 0.0f, camera.movementSpeed * timeSincePrevFrameSeconds, 1.0f};
 		vectorYRotate(camera.ry, moveVector);
 		xMove += moveVector[0];
 		yMove += moveVector[1];
@@ -61,7 +61,7 @@ void processEvents(GLFWwindow *window)
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-		float moveVector[] = {camera.movementSpeed * time, 0.0f, 0.0f, 1.0f};
+		float moveVector[] = {camera.movementSpeed * timeSincePrevFrameSeconds, 0.0f, 0.0f, 1.0f};
 		vectorYRotate(camera.ry, moveVector);
 		xMove += moveVector[0];
 		yMove += moveVector[1];
@@ -82,19 +82,19 @@ void processEvents(GLFWwindow *window)
 
 	/* Camera rotation */
 	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS) {
-		camera.ry -= camera.rotationSpeed * time;
+		camera.ry -= camera.rotationSpeed * timeSincePrevFrameSeconds;
 		cameraMoved = true;
 	}
 	if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS) {
-		camera.rx += camera.rotationSpeed * time;
+		camera.rx += camera.rotationSpeed * timeSincePrevFrameSeconds;
 		cameraMoved = true;
 	}
 	if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS) {
-		camera.rx -= camera.rotationSpeed * time;
+		camera.rx -= camera.rotationSpeed * timeSincePrevFrameSeconds;
 		cameraMoved = true;
 	}
 	if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS) {
-		camera.ry += camera.rotationSpeed * time;
+		camera.ry += camera.rotationSpeed * timeSincePrevFrameSeconds;
 		cameraMoved = true;
 	}
 }
@@ -262,13 +262,13 @@ int main(int argc, char **argv)
 
 	while (running && !glfwWindowShouldClose(window)) {
 		/* Setup */
-		time = getTimeSinceLastFrame();
+		timeSincePrevFrameSeconds = getTimeSinceLastFrame();
 
 		// rotate origin marker
 //		meshes[7]->ry += 30.0f * time;
 
 		frame++;
-		totalTime += time;
+		totalTime += timeSincePrevFrameSeconds;
 		if (frame == frameRateUpdateInterval) {
 			float FPS = frameRateUpdateInterval / totalTime;
 			char title[titleFormatLength];

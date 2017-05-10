@@ -5,7 +5,7 @@
 #include "Windows.h"
 #endif
 
-#include "time.h"
+#include "myTime.h"
 
 #define MILLISECONDS_PER_SEC 1000
 #define MILLISECONDS_PER_NANOSECOND 1000000 /* million */
